@@ -12,7 +12,7 @@ then add to your hosts file
 10.0.75.2 demo.local #Windows
 ```
 
-entering to container:
+entering to container from project folder:
 
 ```
 docker exec -ti todoko5ch_app bash

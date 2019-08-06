@@ -20,6 +20,11 @@ cd laravel_code-example
 docker exec -ti todoko5ch_app bash
 ```
 
+install dependencies with composer
+```
+composer install 
+```
+
 migration and seeders command:
 ```
 php artisan boss

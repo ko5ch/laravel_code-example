@@ -15,6 +15,8 @@ then add to your hosts file
 entering to container from project folder:
 
 ```
+cd laravel_code-example
+
 docker exec -ti todoko5ch_app bash
 ```
 

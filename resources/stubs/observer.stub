@@ -1,0 +1,62 @@
+<?php
+
+namespace $NAMESPACE$;
+
+class $CLASS$
+{
+    public function retrieved()
+    {
+        //
+    }
+
+    public function creating()
+    {
+        //
+    }
+
+    public function created()
+    {
+        //
+    }
+
+    public function updating()
+    {
+        //
+    }
+
+    public function updated()
+    {
+        //
+    }
+
+    public function saving()
+    {
+        //
+    }
+
+    public function saved()
+    {
+        //
+    }
+
+    public function deleting()
+    {
+        //
+    }
+
+    public function deleted()
+    {
+        //
+    }
+
+    public function restoring()
+    {
+        //
+    }
+
+    public function restored()
+    {
+        //
+    }
+
+}

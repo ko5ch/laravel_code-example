@@ -25,7 +25,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/tasks';
 
     /**
      * Show login form.
@@ -34,7 +34,7 @@ class LoginController extends Controller
      */
     public function showLoginForm()
     {
-        return view('users::auth.login');
+        return view('todo.users.auth.login');
     }
 
     /**

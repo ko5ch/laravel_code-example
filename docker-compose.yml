@@ -3,7 +3,7 @@ version: "3"
 services:
   redis:
     image: redis
-    container_name: "laravel_redis"
+    container_name: "todo_redis"
     ports:
       - "6379:6379"
     volumes:
@@ -11,18 +11,18 @@ services:
 
   mysql:
     image: mysql:5.6
-    container_name: "laravel_mysql"
+    container_name: "todo_mysql"
     ports:
       - "3306:3306"
     environment:
       - "MYSQL_ROOT_PASSWORD=secret"
-      - "MYSQL_DATABASE=laravel"
+      - "MYSQL_DATABASE=todo_ko5ch"
     volumes:
       - db_data:/var/lib/mysql
       
   front:
     image: abiosoft/caddy
-    container_name: "laravel_caddy"
+    container_name: "todo_caddy"
     environment:
       - CADDYPATH=/etc/caddycerts
     ports:
@@ -36,9 +36,9 @@ services:
       - app
 
   app:
-    image: laravel_skeleton:build
+    image: todo_ko5ch:build
     build: .
-    container_name: "laravel_app"
+    container_name: "todoko5ch_app"
     volumes:
       - .:/app
       - ./docker/php/php.ini:/usr/local/etc/php/php.ini

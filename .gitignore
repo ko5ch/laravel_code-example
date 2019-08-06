@@ -34,3 +34,5 @@ storage
 public/sitemaps/*.xml
 public/sitemap.xml
 
+# Instruction
+instruction.txt

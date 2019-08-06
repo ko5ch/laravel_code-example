@@ -54,48 +54,48 @@ class LaratrustSeeder extends Seeder
                 }
             }
 
-            $this->command->info("Creating '{$key}' user");
-            // Create default user for each role
-            $user = \Modules\Users\Entities\User::create([
-                'name' => ucwords(str_replace("_", " ", $key)),
-                'email' => $key.'@app.com',
-                'password' => bcrypt('password')
-            ]);
-            $user->attachRole($role);
+//            $this->command->info("Creating '{$key}' user");
+//            // Create default user for each role
+//            $user = \Modules\Users\Entities\User::create([
+//                'name' => ucwords(str_replace("_", " ", $key)),
+//                'email' => $key.'@app.com',
+//                'password' => bcrypt('password')
+//            ]);
+//            $user->attachRole($role);
         }
 
         // creating user with permissions
-        if (!empty($userPermission)) {
-            foreach ($userPermission as $key => $modules) {
-                foreach ($modules as $module => $value) {
-                    $permissions = explode(',', $value);
-                    // Create default user for each permission set
-                    $user = \Modules\Users\Entities\User::create([
-                        'name' => ucwords(str_replace("_", " ", $key)),
-                        'email' => $key.'@app.com',
-                        'password' => bcrypt('password'),
-                        'remember_token' => str_random(10),
-                    ]);
-                    foreach ($permissions as $p => $perm) {
-                        $permissionValue = $mapPermission->get($perm);
-
-                        $permission = \Modules\Users\Entities\Permission::firstOrCreate([
-                            'name' => $permissionValue . '-' . $module,
-                            'display_name' => ucfirst($permissionValue) . ' ' . ucfirst($module),
-                            'description' => ucfirst($permissionValue) . ' ' . ucfirst($module),
-                        ]);
-
-                        $this->command->info('Creating Permission to '.$permissionValue.' for '. $module);
-                        
-                        if (!$user->hasPermission($permission->name)) {
-                            $user->attachPermission($permission);
-                        } else {
-                            $this->command->info($key . ': ' . $p . ' ' . $permissionValue . ' already exist');
-                        }
-                    }
-                }
-            }
-        }
+//        if (!empty($userPermission)) {
+//            foreach ($userPermission as $key => $modules) {
+//                foreach ($modules as $module => $value) {
+//                    $permissions = explode(',', $value);
+//                    // Create default user for each permission set
+//                    $user = \Modules\Users\Entities\User::create([
+//                        'name' => ucwords(str_replace("_", " ", $key)),
+//                        'email' => $key.'@app.com',
+//                        'password' => bcrypt('password'),
+//                        'remember_token' => str_random(10),
+//                    ]);
+//                    foreach ($permissions as $p => $perm) {
+//                        $permissionValue = $mapPermission->get($perm);
+//
+//                        $permission = \Modules\Users\Entities\Permission::firstOrCreate([
+//                            'name' => $permissionValue . '-' . $module,
+//                            'display_name' => ucfirst($permissionValue) . ' ' . ucfirst($module),
+//                            'description' => ucfirst($permissionValue) . ' ' . ucfirst($module),
+//                        ]);
+//
+//                        $this->command->info('Creating Permission to '.$permissionValue.' for '. $module);
+//
+//                        if (!$user->hasPermission($permission->name)) {
+//                            $user->attachPermission($permission);
+//                        } else {
+//                            $this->command->info($key . ': ' . $p . ' ' . $permissionValue . ' already exist');
+//                        }
+//                    }
+//                }
+//            }
+//        }
     }
 
     /**

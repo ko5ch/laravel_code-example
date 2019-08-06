@@ -1,0 +1,46 @@
+.custom-panel {
+    display: block;
+    border-width: 0;
+    padding: 1em 1.4em;
+    background: none;
+}
+.btn-primary-spacing {
+    margin-right: 5px;
+    margin-bottom: 5px;
+    width: 40px;
+}
+
+table .action {
+    width:auto;
+    text-align:right;
+    white-space: nowrap
+}
+
+.todo_link {
+    color: inherit;
+    text-decoration: inherit;
+}
+.todo_link:link, .todo_link:visited, .todo_link:active {
+    color: inherit;
+    text-decoration: inherit;
+}
+.todo_link:hover {
+    color:  darkturquoise;
+    text-decoration: inherit;
+}
+#loading img {
+    width: 200px;
+    height: auto;
+}
+
+.status {
+    position: relative !important;
+}
+.status > :first-child {
+    position: absolute;
+    top: 10%;
+}
+.status > :last-child {
+    position: absolute;
+    bottom: 50%;
+}

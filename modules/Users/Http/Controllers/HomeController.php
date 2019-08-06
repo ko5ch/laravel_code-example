@@ -13,7 +13,7 @@ class HomeController extends Controller
 	 */
 	public function getHomePage()
 	{
-		return view('users::edit');
+		return view('todo.users.edit');
 	}
 
 	/**

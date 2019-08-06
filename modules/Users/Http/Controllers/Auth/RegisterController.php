@@ -27,7 +27,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Show the application registration form.
@@ -36,7 +36,7 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm()
     {
-        return view('users::auth.register');
+        return view('todo.users.auth.register');
     }
 
     /**

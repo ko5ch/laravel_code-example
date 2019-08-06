@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laratrust\Traits\LaratrustUserTrait;
+use Modules\Main\Entities\Task;
 
 class User extends Authenticatable
 {
@@ -24,10 +25,8 @@ class User extends Authenticatable
 	 * @var array
 	 */
 	protected $fillable = [
-		'name',
-		'email',
-		'password',
-		'avatar',
+        'name', 'email', 'email_token', 'password',
+        'avatar', 'username',
 	];
 
 	/**
@@ -36,6 +35,40 @@ class User extends Authenticatable
 	 * @var array
 	 */
 	protected $hidden = ['password', 'remember_token'];
+
+    const DEFAULT_AVATAR = 'default/img/avatar.png';
+
+    /**
+     * @return bool
+     */
+    public function getIsEditorAttribute()
+    {
+        return $this->hasRole('admin');
+    }
+
+    /**
+     * @return bool
+     */
+    public function getIsConfirmedAttribute()
+    {
+        return $this->email && is_null($this->email_token);
+    }
+
+    /**
+     * @return string
+     */
+    public function getAvatarAttribute()
+    {
+        return $this->getOriginal('avatar') ?: self::DEFAULT_AVATAR;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAvatarUrlAttribute()
+    {
+        return asset($this->avatar);
+    }
 
 	/**
 	 * This mutator automatically hashes the password.
@@ -46,4 +79,12 @@ class User extends Authenticatable
 	{
 		$this->attributes['password'] = \Hash::make($value);
 	}
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
+    }
 }

@@ -29,7 +29,7 @@ class ResetPasswordController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Display the password reset view for the given token.
@@ -43,7 +43,7 @@ class ResetPasswordController extends Controller
      */
     public function showResetForm(Request $request, $token = null)
     {
-        return view('users::auth.passwords.reset')->with(
+        return view('todo.users.auth.passwords.reset')->with(
             ['token' => $token, 'email' => $request->email]
         );
     }

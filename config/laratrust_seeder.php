@@ -1,19 +1,13 @@
 <?php
+use Modules\Users\Entities\Role;
 
 return [
     'role_structure' => [
-        'superadministrator' => [
-            'users' => 'c,r,u,d',
-            'acl' => 'c,r,u,d',
-            'profile' => 'r,u'
-        ],
-        'administrator' => [
+
+        Role::TYPE_ADMIN => [
             'users' => 'c,r,u,d',
             'profile' => 'r,u'
-        ],
-        'user' => [
-            'profile' => 'r,u'
-        ],
+        ]
     ],
     'permission_structure' => [
         'cru_user' => [

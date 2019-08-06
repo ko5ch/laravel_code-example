@@ -38,7 +38,10 @@ cd laravel_code-example
 
 docker exec -ti todoko5ch_app bash
 ```
-
+or
+```
+docker exec -ti todoko5ch_app /bin/bash
+```
 migration and seeders command:
 ```
 php artisan boss
